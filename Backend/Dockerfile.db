@@ -1,0 +1,7 @@
+FROM postgres:alpine3.18
+
+# Copy the SQL initialization script to the docker-entrypoint-initdb.d directory
+COPY init.sql /docker-entrypoint-initdb.d/
+
+# Expose the default PostgreSQL port
+EXPOSE 5432

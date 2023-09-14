@@ -1,0 +1,77 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <img width="45" alt="Angular Logo"
+    src="assets/xenonstackLogo.png"/>  
+  <span>EMPLOYEE LEAVE FORM</span>
+  <button class="get_button" type="submit" (click)="getemployee()">Get Employee</button>
+</div>
+
+<div class="content" role="main">
+  <div class="card highlight-card card-small">
+
+    <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632"
+      viewBox="0 0 516.119 1083.632">
+      <title>Rocket Ship Smoke</title>
+      <path id="Path_40" data-name="Path 40"
+        d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z"
+        transform="translate(-147.025 -140.939)" fill="#f5f5f5" />
+    </svg>
+
+  </div>
+</div>
+
+
+<div>
+  <h2 class="h1Class">Employee Leave Form</h2><br />
+
+  <div>
+    <form [formGroup]="form" class="employee_form">
+
+      <div class="employee_form_left">
+
+        <p class="emp_name">    Enter your Name:                        </p>
+        <p class="team_name">   Select Your Team:                       </p>
+        <p class="leave_from">  Enter the start date of Leave:          </p>
+        <p class="leave_to">    Enter the end date of Leave:            </p>
+        <p class="leave_type">  Select Leave Type:                      </p>
+        <p class="reporter">    Select Reporter Name:                   </p>       
+        <p class="attachment">  Please provide the file(if sick leave): </p>
+      </div>
+
+      <div class="employee_form_right">
+        
+        <input class = "text_box" type="text" formControlName="name" placeholder="Name" required ><br />
+
+        <div class="teamname">
+          <label class="radio"><input type="radio" name="teamname" value="PlatformOps"  formControlName="teamname"> PlatformOps </label>
+          <label class="radio"><input type="radio" name="teamname" value="CloudOps"     formControlName="teamname"> CloudOps    </label><br>
+          <label class="radio"><input type="radio" name="teamname" value="DevOps"       formControlName="teamname"> DevOps      </label>
+          <label class="radio"><input type="radio" name="teamname" value="ItOps"        formControlName="teamname"> ItOps       </label>  
+          <label class="radio"><input type="radio" name="teamname" value="SRE"          formControlName="teamname"> SRE         </label><br/><br/>
+        </div>
+
+
+        <input class = "date" type="date" formControlName="leavefrom" placeholder="Leaves" required><br />
+        <input class = "date" type="date" formControlName="leaveto"   placeholder="Leaves" required><br />
+
+        <select class="options" name="leavetype" id="leave" formControlName="leavetype" required>
+          <option value="Sick Leave">   Sick Leave   </option>
+          <option value="Casual Leave"> Casual Leave </option>
+          <option value="Earned Leave"> Earned Leave </option>
+        </select><br />
+        
+        <select class = "options" name="reporter" id="reporter" formControlName="reporter" required>
+          <option value="Chitransh Sharma"> Chitransh Sharma</option>
+          <option value="Approva Sharma">   Approva Sharma  </option>
+          <option value="Sahil Bansal">     Sahil Bansal    </option>
+          <option value="Surya Kant">       Surya Kant      </option>
+        </select><br />
+        
+        <input class = "file" type="file" name="attachment" (change)="onFileSelect($event)" ><br />
+      </div>
+      <button class="submit_button" type="submit" (click)="onSubmit()">Submit Form</button>
+
+    </form>
+
+  </div>
+</div>

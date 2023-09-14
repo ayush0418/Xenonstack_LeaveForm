@@ -1,0 +1,45 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+    <img width="45" alt="Angular Logo"
+      src="assets/xenonstackLogo.png"/>  
+    <span>EMPLOYEE LEAVE FORM</span>
+    <button class="get_button" type="submit" (click)="getform()" >Submit Leave</button>
+</div>
+
+<div class="heading">
+    <h1>Employee Leave Data</h1>
+</div>
+
+<div class="table">
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Team Name</th>
+                <th>Leave From</th>
+                <th>Leave To</th>
+                <th>Leave Type</th>
+                <th>Reporter</th>
+                <th>Attachment</th>
+                <th>Status</th>
+                <th>Review</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{ employee.id }}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.teamname}}</td>
+                <td>{{employee.leavefrom}}</td>
+                <td>{{employee.leaveto}}</td>
+                <td>{{employee.leavetype}}</td>
+                <td>{{employee.reporter}}</td>
+                <td>{{employee.attachment}}</td>
+                <td>{{employee.status}}</td>
+                <button class="approve" (click)="onApprove(employee.id)">Approve</button>
+                <button class="reject" (click)="onReject(employee.id)">Reject</button>
+            </tr>
+        </tbody>
+    </table>
+</div>

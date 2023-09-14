@@ -1,0 +1,45 @@
+version: "3"
+networks:
+  aayush_leaveform_network:
+    external: true
+volumes: 
+  aayush_leaveform_volume:
+    external: true
+services:
+
+  db:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile.db
+    ports:
+      - "5400:5432"
+    environment:
+      POSTGRES_DB: employee
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+    networks:
+      - aayush_leaveform_network
+    volumes: 
+      - aayush_leaveform_volume:/var/lib/postgresql/data 
+
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    ports:
+      - "9090:9090"
+    networks:
+      - aayush_leaveform_network
+    depends_on:
+      - db
+      
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    networks:
+      - aayush_leaveform_network
+    depends_on:
+      - backend

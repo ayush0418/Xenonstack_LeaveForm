@@ -1,0 +1,6 @@
+<h1 class="auth">Enter The Password to Access Employee Data</h1>
+
+<form [formGroup]="form" class="auth-form">
+    <input class="auth-password" type="password" placeholder="Enter your Password" formControlName="password">
+    <input class="auth-submit" type="submit" (click)="getemployeeauth()">
+</form>
