@@ -26,5 +26,9 @@ export class AuthenticationComponent implements OnInit {
     }
   }
 
+  getForm(){
+    this.router.navigate([''])
+  }
+
   ngOnInit(): void { }
 }

@@ -31,14 +31,14 @@ describe('ApiService', () => {
     it('should submit employee data', () => {
         const formData = new FormData();
         service.submitEmployeeData(formData).subscribe(response => { });
-        const req = httpMock.expectOne('http://localhost:8081/emp');
+        const req = httpMock.expectOne('http://localhost:9090/emp');
         expect(req.request.method).toBe('POST');
     });
 
     // Test Case 3
     it('should get employee data', () => {
         service.getEmployeeData().subscribe(response => { });
-        const req = httpMock.expectOne('http://localhost:8081/employee');
+        const req = httpMock.expectOne('http://localhost:9090/employee');
         expect(req.request.method).toBe('GET');
     });
 
@@ -46,7 +46,7 @@ describe('ApiService', () => {
     it('should approve employee', () => {
         const id = '1';
         service.approveEmployee(id).subscribe(response => { });
-        const req = httpMock.expectOne(`http://localhost:8081/employee/${id}/approved`);
+        const req = httpMock.expectOne(`http://localhost:9090/employee/${id}/approved`);
         expect(req.request.method).toBe('PUT');
     });
 
@@ -54,7 +54,7 @@ describe('ApiService', () => {
     it('should reject employee', () => {
         const id = '1';
         service.rejectEmployee(id).subscribe(response => { });
-        const req = httpMock.expectOne(`http://localhost:8081/employee/${id}/rejected`);
+        const req = httpMock.expectOne(`http://localhost:9090/employee/${id}/rejected`);
         expect(req.request.method).toBe('PUT');
     });
 

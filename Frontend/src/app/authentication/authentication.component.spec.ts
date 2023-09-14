@@ -1,4 +1,4 @@
-// Running 3 Test Cases
+// Running 4 Test Cases
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -57,5 +57,12 @@ describe('AuthenticationComponent', () => {
 
         expect(router.navigate).not.toHaveBeenCalledWith(['/getEmployee']);
         expect(window.alert).toHaveBeenCalledWith('Enter Valid Password');
+    })
+
+    // Test Case 4
+    it('should Navigate to Home page', () => {
+        spyOn(router, 'navigate').and.stub();
+        component.getForm();
+        expect(router.navigate).toHaveBeenCalledWith(['']);
     })
 });
