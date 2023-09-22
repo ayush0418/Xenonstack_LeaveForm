@@ -34,28 +34,28 @@ describe('AuthenticationComponent', () => {
     });
 
     // Test Case 2
-    it('should navigate to get employee if valid password', () => {
+    it('should navigate to get notification if valid password', () => {
         spyOn(router, 'navigate').and.stub();
 
         component.form.patchValue({
             password: 'admin'
         });
-        component.getemployeeauth();
+        component.getNotificatonAuth();
 
-        expect(router.navigate).toHaveBeenCalledWith(['/getEmployee']);
+        expect(router.navigate).toHaveBeenCalledWith(['/notifications']);
     })
 
     // Test Case 3
-    it('should not navigate to get employee if notvalid password', () => {
+    it('should not navigate to get notification if not valid password', () => {
         spyOn(router, 'navigate').and.stub();
         spyOn(window, 'alert');
 
         component.form.patchValue({
             password: 'admin123'
         });
-        component.getemployeeauth();
+        component.getNotificatonAuth();
 
-        expect(router.navigate).not.toHaveBeenCalledWith(['/getEmployee']);
+        expect(router.navigate).not.toHaveBeenCalledWith(['/notifications']);
         expect(window.alert).toHaveBeenCalledWith('Enter Valid Password');
     })
 

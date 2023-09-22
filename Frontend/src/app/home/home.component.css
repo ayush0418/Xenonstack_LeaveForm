@@ -23,6 +23,7 @@
 }
 .toolbar span{
     padding-left: 15px;
+    margin-right: 70rem;
 }
 
 .content {
@@ -186,7 +187,7 @@ input[type='radio']{
 }
 
 .get_button {
-    margin-left: 1350px;
+    margin-left: 50px;
     margin-top: 0px;
     color: crimson;
     display: block;

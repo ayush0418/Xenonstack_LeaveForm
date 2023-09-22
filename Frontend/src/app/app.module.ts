@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GetemployeeComponent } from './getemployee/getemployee.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     ThankYouComponent,
     HomeComponent,
     GetemployeeComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    NotificationsComponent
   ],
   imports: [
     HttpClientModule,
@@ -27,6 +29,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
       { path: 'thank-you', component: ThankYouComponent },
       { path: '', component: HomeComponent },
       { path: 'getEmployee', component: GetemployeeComponent },
+      { path: 'notifications', component:NotificationsComponent },
       { path: 'authentication', component:AuthenticationComponent }
     ]),
   ],

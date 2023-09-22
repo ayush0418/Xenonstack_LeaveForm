@@ -1,4 +1,4 @@
-//Running 5 Test Cases
+//Running 3 Test Cases
 
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
@@ -46,30 +46,6 @@ describe('GetemployeeComponent', () => {
 
         spyOn(apiService, 'getEmployeeData').and.returnValue(of(mockResponse));
         component.ngOnInit();
-        expect(apiService.getEmployeeData).toHaveBeenCalled();
-    });
-
-    // Test Case 4
-    it('Should Aprove on clicking Approve and Display new Data', () => {
-        const id = '1'
-        const mockResponse = { success: true };
-
-        spyOn(apiService, 'approveEmployee').and.returnValue(of(id));
-        spyOn(apiService, 'getEmployeeData').and.returnValue(of(mockResponse));
-        component.onApprove(id);
-        expect(apiService.approveEmployee).toHaveBeenCalled();
-        expect(apiService.getEmployeeData).toHaveBeenCalled();
-    });
-
-    // Test Case 5
-    it('Should Reject on clicking Reject and Display new Data', () => {
-        const id = '1'
-        const mockResponse = { success: true };
-
-        spyOn(apiService, 'rejectEmployee').and.returnValue(of(id));
-        spyOn(apiService, 'getEmployeeData').and.returnValue(of(mockResponse));
-        component.onReject(id);
-        expect(apiService.rejectEmployee).toHaveBeenCalled();
         expect(apiService.getEmployeeData).toHaveBeenCalled();
     });
 

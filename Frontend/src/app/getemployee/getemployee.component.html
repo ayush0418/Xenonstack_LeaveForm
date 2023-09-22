@@ -23,7 +23,6 @@
                 <th>Reporter</th>
                 <th>Attachment</th>
                 <th>Status</th>
-                <th>Review</th>
             </tr>
         </thead>
         <tbody>
@@ -37,8 +36,6 @@
                 <td>{{employee.reporter}}</td>
                 <td>{{employee.attachment}}</td>
                 <td>{{employee.status}}</td>
-                <button class="approve" (click)="onApprove(employee.id)">Approve</button>
-                <button class="reject" (click)="onReject(employee.id)">Reject</button>
             </tr>
         </tbody>
     </table>

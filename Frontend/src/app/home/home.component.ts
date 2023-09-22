@@ -25,6 +25,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() { }
 
   getemployee() {
+    this.router.navigate(['/getEmployee'])
+  }
+  getNotifications() {
     this.router.navigate(['/authentication'])
   }
 

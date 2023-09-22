@@ -17,9 +17,9 @@ export class AuthenticationComponent implements OnInit {
     });
   }
   
-  getemployeeauth() {
+  getNotificatonAuth() {
     if (this.form.get('password')?.value == 'admin') {
-      this.router.navigate(['/getEmployee'])
+      this.router.navigate(['/notifications'])
     }
     else {
       alert("Enter Valid Password")

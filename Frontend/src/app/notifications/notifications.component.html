@@ -1,0 +1,32 @@
+<div class="toolbar" role="banner">
+    <img width="45" alt="Angular Logo"
+      src="assets/xenonstackLogo.png"/>  
+    <span>EMPLOYEE LEAVE FORM</span>
+    <button class="get_button" type="submit" (click)="getemployee()" >Employee Data</button>
+</div>
+
+<div class="heading">
+    <h1>Manager Data</h1>
+</div>
+
+<div class="table">
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Reporter Name</th>
+                <th>Status</th>
+                <th>Review</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let notification of notification">
+                <td>{{ notification.Id }}</td>
+                <td>{{notification.reporter}}</td>
+                <td>{{notification.approved}}</td>
+                <button class="approve" (click)="onApprove(notification.Id)">Approve</button>
+                <button class="reject" (click)="onReject(notification.Id)">Reject</button>
+            </tr>
+        </tbody>
+    </table>
+</div>

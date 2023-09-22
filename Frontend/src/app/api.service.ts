@@ -28,4 +28,7 @@ export class ApiService {
     return this.http.put(`${this.apiUrl}/employee/${id}/rejected`, 'Rejected')
   }
 
+  getNotificationData(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/notifications`);
+  }
 }

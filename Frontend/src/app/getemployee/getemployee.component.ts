@@ -20,25 +20,4 @@ export class GetemployeeComponent implements OnInit {
       this.employees = data;
     });
   }
-
-  onApprove(id: any) {
-    this.apiService.approveEmployee(id).subscribe((data) =>{
-      this.employees = data;
-    })
-    alert("Employee Leave Approved")
-    this.apiService.getEmployeeData().subscribe((data) => {
-      this.employees = data;
-    });
-  }
-
-  onReject(id: any) {
-    this.apiService.rejectEmployee(id).subscribe((data) => {
-      this.employees = data;
-    })
-    alert("Employee Leave Rejected")
-    this.apiService.getEmployeeData().subscribe((data) => {
-      this.employees = data;
-    });
-    
-  }
 }

@@ -1,4 +1,4 @@
-// Running 8 Test Cases
+// Running 9 Test Cases
 
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
@@ -35,13 +35,20 @@ describe('HomeComponent', () => {
     });
 
     // Test Case 2
-    it('should navigate to authentication page', () => {
+    it('should navigate to employee data page', () => {
         spyOn(router, 'navigate').and.stub();
         component.getemployee();
+        expect(router.navigate).toHaveBeenCalledWith(['/getEmployee']);
+    });
+
+     // Test Case 3
+     it('should navigate to authentication page', () => {
+        spyOn(router, 'navigate').and.stub();
+        component.getNotifications();
         expect(router.navigate).toHaveBeenCalledWith(['/authentication']);
     });
 
-    // Test Case 3
+    // Test Case 4
     it('should set attachment when a file is selected', () => {
         const file = new File([''], 'sample.txt', { type: 'text/plain' });
         const event = { target: { files: [file] } } as any;
@@ -49,7 +56,7 @@ describe('HomeComponent', () => {
         expect(component.form.get('attachment')?.value).toBe(file);
     });
 
-    // Test Case 4
+    // Test Case 5
     it('Should submit form for Sick Leave with valid file extension and All field filled', () => {
 
         const mockResponse = { success: true }; // Mocking a successful response
@@ -75,7 +82,7 @@ describe('HomeComponent', () => {
         expect(router.navigate).toHaveBeenCalledWith(['/thank-you']);
     });
 
-    // Test Case 5
+    // Test Case 6
     it('Should not submit form if Sick Leave and file type is invalid', () => {
         spyOn(apiService, 'submitEmployeeData');
         spyOn(window, 'alert');
@@ -97,7 +104,7 @@ describe('HomeComponent', () => {
         expect(router.navigate).not.toHaveBeenCalled();
     });
 
-    // Test Case 6
+    // Test Case 7
     it('Should submit form if leave type is not Sick Leave and file is not attached', () => {
         const mockResponse = { success: true }; // Mocking a successful response
 
@@ -122,7 +129,7 @@ describe('HomeComponent', () => {
         expect(router.navigate).toHaveBeenCalledWith(['/thank-you']);
     });
 
-    // Test Case 7
+    // Test Case 8
     it('Should not submit form if leave type is not Sick Leave and file is attached', () => {
         const mockResponse = { success: true }; // Mocking a successful response
 
@@ -147,7 +154,7 @@ describe('HomeComponent', () => {
         expect(router.navigate).not.toHaveBeenCalledWith(['/thank-you']);
     });
 
-    // Test Case 8
+    // Test Case 9
     it('Should not submit form and provide alert if any other condition is used', () => {
         const mockResponse = { success: true }; // Mocking a successful response
 
