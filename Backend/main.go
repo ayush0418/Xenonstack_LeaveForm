@@ -27,6 +27,7 @@ func main() {
 	router.DELETE("/employee/:id", deleteEmployeeId)
 	router.GET("/employee", getEmployee)
 	router.GET("/employee/:id", getEmployeeId)
+	router.GET("/notifications", getNotifications)
 
 	router.Run("0.0.0.0:9090")
 }
@@ -41,4 +42,10 @@ type employee struct {
 	Reporter   string `json:"reporter"`
 	Attachment string `json:"attachment"`
 	Status string `json:"status"`
+}
+
+type notification struct {
+	Id 		   int		`json : "id"`
+	Reporter   string 	`json:"reporter"`
+	Approved   string 	`json:"approved"`
 }
