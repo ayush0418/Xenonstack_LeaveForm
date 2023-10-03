@@ -14,6 +14,10 @@ export class NotificationsComponent {
     this.router.navigate(['/getEmployee'])
   }
 
+  getdashboard() {
+    this.router.navigate(['/dashboard'])
+  }
+
   ngOnInit() {
     this.apiService.getNotificationData().subscribe((data) => {
       this.notification = data;

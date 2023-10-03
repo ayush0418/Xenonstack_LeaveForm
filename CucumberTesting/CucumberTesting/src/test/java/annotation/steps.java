@@ -39,8 +39,23 @@ public class steps {
 		driver.findElement(By.id("reporter")).click();
 		driver.findElement(By.xpath("//*[@id=\"reporter\"]/option[3]")).click();
 		
+		// Submitting Form
+		// driver.findElement(By.className("submit_button")).click();
+
+		// Getting Employee Data
+		driver.findElement(By.xpath("/html/body/app-root/app-home/div[1]/button[1]")).click();
+		
+		// Coming Back to Form Page
 		driver.findElement(By.className("get_button")).click();
-		driver.findElement(By.className("get_button")).click();
+		
+		// Getting Notifications Page
+		driver.findElement(By.xpath("/html/body/app-root/app-home/div[1]/button[2]")).click();
+		
+		// Entering Password
+		driver.findElement(By.className("auth-password")).sendKeys("admin");
+		
+		//Submitting the password to get notifications data
+		driver.findElement(By.className("auth-submit")).click();
     }
 }
 

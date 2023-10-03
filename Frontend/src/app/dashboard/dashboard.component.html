@@ -1,0 +1,127 @@
+<div class="toolbar" role="banner">
+    <img width="45" alt="Angular Logo" src="assets/xenonstackLogo.png" />
+    <span>EMPLOYEE LEAVE FORM</span>
+    <button class="get_button" type="submit" (click)="getemployee()">Employee Data</button>
+    <button class="get_button" type="submit" (click)="getkpi()">KPI</button>
+</div>
+
+<div class="heading">
+    <h1>KPI DASHBOARD</h1>
+</div>
+
+
+<br /><br />
+<div class="table">
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th> Question</th>
+                <th> Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>No. of Employees on Leave in Month of August 2022</td>
+                <td *ngFor="let august2022 of august2022">{{ august2022.count }}</td>
+            </tr>
+            <tr>
+                <td>Month with Maximum No. of Leaves in Year 2022</td>
+                <td *ngFor="let maximumMonth2022 of maximumMonth2022">
+                    {{ maximumMonth2022.month }} - {{ maximumMonth2022.count }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<br /><br />
+<div class="table">
+    <ul class="sub-heading">
+        <li>Top 5 Employees With Maximum Leave Taken in Year 2023</li>
+    </ul>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>Leave Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let top5employees of top5employees">
+                <td>{{ top5employees.name}}</td>
+                <td>{{ top5employees.count }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<br /><br />
+<div class="table">
+    <ul class="sub-heading">
+        <li>Employees on Leave in First Quater of 2023 Under Each Manager</li>
+    </ul>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Manager Name</th>
+                <th>Leave Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employeesUnderManager of employeesUnderManager">
+                <td>{{ employeesUnderManager.reporter }}</td>
+                <td>{{ employeesUnderManager.count }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<br /><br />
+<div class="table">
+    <ul class="sub-heading">
+        <li>Team Ranking Based on Leaves Taken By Employee In 2022</li>
+    </ul>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th> Ranking </th>
+                <th> Team Name </th>
+                <th> Leave Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let teamRanking2022 of teamRanking2022; let i=index;">
+                <td>{{ i + 1 }}</td>
+                <td>{{ teamRanking2022.teamname }}</td>
+                <td>{{ teamRanking2022.count }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<br /><br />
+<div class="table">
+    <ul class="sub-heading">
+        <li>Team Ranking Distribution Based on Leaves Taken By Employee In 2022</li>
+    </ul>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th> Team Name</th>
+                <th> Leave Type </th>
+                <th> Leave Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let teamRanking2022Distribution of teamRanking2022Distribution">
+                <td>{{ teamRanking2022Distribution.teamname }}</td>
+                <td>{{ teamRanking2022Distribution.leavetype }}</td>
+                <td>{{ teamRanking2022Distribution.count }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

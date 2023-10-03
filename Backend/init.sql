@@ -58,3 +58,42 @@ AFTER INSERT OR UPDATE ON public.employee
 FOR EACH ROW
 EXECUTE FUNCTION update_notifications();
 
+
+CREATE VIEW August2022 AS
+SELECT Count(emp_name) AS count FROM employee 
+WHERE leave_from > '2022-07-31' AND leave_to < '2022-09-01';
+
+
+CREATE VIEW EmployeesUnderManager AS
+select distinct reporter, count(DISTINCT emp_name) AS count FROM employee 
+WHERE leave_from > '2022-12-31' AND leave_to < '2023-04-01' GROUP BY reporter;
+
+
+CREATE VIEW MaximumMonth2022 AS
+SELECT TO_CHAR(TO_DATE(EXTRACT(MONTH FROM leave_from)::text, 'MM'), 'Month') as month, 
+SUM(leave_to - leave_from + 1) AS count FROM employee 
+WHERE leave_from > '2021-12-31' AND leave_to < '2022-12-31' AND leave_type = '''Sick Leave''' 
+GROUP BY month ORDER BY count DESC LIMIT 1;
+
+
+CREATE VIEW TeamRanking2022 AS 
+select team_name, count(leave_to - leave_from + 1) as count from employee 
+where leave_from > '2021-12-31' AND leave_to < '2023-01-01' 
+GROUP BY team_name ORDER BY count DESC;
+
+
+CREATE VIEW TeamRanking2022Distribution AS
+SELECT team_name, leave_type, count(leave_type) as leave_count FROM employee 
+WHERE leave_from > '2021-12-31' AND leave_to < '2023-01-01' AND team_name IN 
+( 
+	SELECT team_name from employee 
+	WHERE leave_from > '2021-12-31' AND leave_to < '2023-01-01' 
+	GROUP BY team_name ORDER BY count(leave_to - leave_from + 1) DESC LIMIT 2 
+) 
+GROUP BY team_name, leave_type ORDER BY team_name;
+
+
+CREATE VIEW Top5Employees AS
+SELECT emp_name, SUM(leave_to - leave_from + 1) AS count FROM employee 
+WHERE  leave_from > '2022-12-31' AND leave_to < '2023-12-31'
+GROUP BY emp_name ORDER BY count DESC LIMIT 5;

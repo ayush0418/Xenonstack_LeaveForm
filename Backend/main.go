@@ -29,6 +29,13 @@ func main() {
 	router.GET("/employee/:id", getEmployeeId)
 	router.GET("/notifications", getNotifications)
 
+	router.GET("/dashboard/august2022", getDashboard_August2022)
+	router.GET("/dashboard/maximumMonth2022", getDashboard_MaximumMonth2022)
+	router.GET("/dashboard/top5employees", getDashboard_Top5Employees)
+	router.GET("/dashboard/employeesUnderManager", getDashboard_EmployeesUnderManager)
+	router.GET("/dashboard/teamRanking2022", getDashboard_TeamRanking2022)
+	router.GET("/dashboard/teamRanking2022Distribution", getDashboard_TeamRanking2022Distribution)
+
 	router.Run("0.0.0.0:9090")
 }
 
@@ -48,4 +55,34 @@ type notification struct {
 	Id 		   int		`json : "id"`
 	Reporter   string 	`json:"reporter"`
 	Approved   string 	`json:"approved"`
+}
+
+type Top5Employees struct {
+	Name 		string 	`json:"name"`
+	Count		int 	`json:"count"`
+}
+
+type August2022 struct {
+	Count 		int 	`json:"count"`
+}
+
+type MaximumMonth2022 struct {
+	Month  		string 	`json:"month"`
+	Count		int 	`json:"count"`
+}
+
+type EmployeesUnderManager struct {
+	Reporter 	string 	`json:"reporter"`
+	Count	 	int 	`json:"count"`
+}
+
+type TeamRanking2022 struct {
+	TeamName	string 	`json:"teamname"`
+	Count		int		`json:"count"`
+}
+
+type TeamRanking2022Distribution struct {
+	TeamName	string 	`json:"teamname"`
+	Count		int		`json:"count"`
+	LeaveType	string	`json:"leavetype"`
 }
