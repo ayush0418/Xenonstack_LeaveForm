@@ -22,7 +22,8 @@ func createEmployee(c *gin.Context) {
 	LeaveType := c.PostForm("leave_type")
 	Reporter := c.PostForm("reporter")
 
-	if LeaveType == "Sick Leave" {
+	// Chnage the If block condition to Sick Leave if wanted file to go when sick leave is selected
+	if LeaveType == "Sick Leaves" {
 		fmt.Println("With File Block")
 
 		fileHeader, err := c.FormFile("attachment")

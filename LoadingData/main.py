@@ -1,6 +1,5 @@
 import pandas as pd
 import requests 
-import xlrd
 
 
 getUrl  = "http://localhost:9090/employee"
@@ -25,6 +24,11 @@ myobj = {
 }
 
 merge_data = merge_data.rename(columns=myobj)
+
+# Rempve Single Quotes from Data
+columns_to_clean = ['emp_name', 'leave_type', 'reporter']
+for col in columns_to_clean:
+    merge_data[col] = merge_data[col].str.strip("'")
 
 data_list = merge_data.to_dict(orient='records')
 

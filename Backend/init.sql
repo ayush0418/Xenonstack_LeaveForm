@@ -72,7 +72,7 @@ WHERE leave_from > '2022-12-31' AND leave_to < '2023-04-01' GROUP BY reporter;
 CREATE VIEW MaximumMonth2022 AS
 SELECT TO_CHAR(TO_DATE(EXTRACT(MONTH FROM leave_from)::text, 'MM'), 'Month') as month, 
 SUM(leave_to - leave_from + 1) AS count FROM employee 
-WHERE leave_from > '2021-12-31' AND leave_to < '2022-12-31' AND leave_type = '''Sick Leave''' 
+WHERE leave_from > '2021-12-31' AND leave_to < '2022-12-31' AND leave_type = 'Sick Leave' 
 GROUP BY month ORDER BY count DESC LIMIT 1;
 
 

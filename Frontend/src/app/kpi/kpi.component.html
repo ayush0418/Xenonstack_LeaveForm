@@ -1,1 +1,70 @@
-<p>kpi works!</p>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="toolbar" role="banner">
+    <img width="45" alt="Angular Logo" src="assets/xenonstackLogo.png" />
+    <span>EMPLOYEE LEAVE FORM</span>
+    <button class="get_button" type="submit" (click)="getemployee()">Employee Data</button>
+    <button class="get_button" type="submit" (click)="getdashboard()">Dashboard</button>
+</div>
+
+<div class="heading">
+    <h1>KPI VISUALIZATION</h1>
+</div>
+
+<br/>
+
+
+<div class="chart-container">
+    <div class="table">
+        <ul class="sub-heading">
+            <li>Top 5 Employees With Maximum Leave Taken in Year 2023</li>
+        </ul>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Leave Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let top5employees of top5employees">
+                    <td>{{ top5employees.name}}</td>
+                    <td>{{ top5employees.count }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="barChart"> 
+        <ul class="sub-heading">
+            <li>BAR CHART VISUALIZATION</li>
+        </ul>
+        <canvas  id="BarChart" >{{ chart }}</canvas>
+    </div>
+
+</div>
+
+<br/><br/>
+<br/>
+
+<div class="pie-chart-container">
+    <div class="pieChart">
+        <ul class="sub-heading">
+            <li>PIE CHART VISUALIZATION</li>
+        </ul>
+        <canvas  id="PieChart1" >{{ chart }}</canvas>
+    </div>
+
+    <div class="pieChart">
+        <ul class="sub-heading">
+            <li>TEAM AI</li>
+        </ul>
+        <canvas  id="PieChart2" >{{ chart }}</canvas>
+    </div>
+
+    <div class="pieChart">
+        <ul class="sub-heading">
+            <li>TEAM IT</li>
+        </ul>
+        <canvas  id="PieChart3" >{{ chart }}</canvas>
+    </div>
+</div>
